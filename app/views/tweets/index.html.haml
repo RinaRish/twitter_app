@@ -1,0 +1,23 @@
+= form_for(@tweet) do |f|
+  %p
+    = f.text_area :content, class: 'form'
+  %p
+    = f.submit 'tweet', class: 'button_tweet'
+- @tweets.each do |tweet|
+  %p
+    = tweet.content
+    = tweet.created_at.strftime("%d %b. %Y")
+- content_for(:side_bar) do
+  %table.info
+    %tr
+      %td
+        = link_to '#' do
+          %p
+            = @tweets.count
+          %p
+            Tweets
+      %td
+        = link_to 'Following', '#'
+      %td
+        = link_to 'Followers', '#'
+

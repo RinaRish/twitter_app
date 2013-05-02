@@ -17,7 +17,9 @@
       .container
         .content
           .row
-            .span12
+            .span4
+              = yield(:side_bar)
+            .span6
               = render 'layouts/messages'
               = yield
           %footer
