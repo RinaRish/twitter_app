@@ -8,16 +8,8 @@
     = tweet.content
     = tweet.created_at.strftime("%d %b. %Y")
 - content_for(:side_bar) do
-  %table.info
-    %tr
-      %td
-        = link_to '#' do
-          %p
-            = @tweets.count
-          %p
-            Tweets
-      %td
-        = link_to 'Following', '#'
-      %td
-        = link_to 'Followers', '#'
+  %section
+    = render 'users/stats'
+
+        
 

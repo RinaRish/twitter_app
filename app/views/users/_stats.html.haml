@@ -1,0 +1,20 @@
+- @user ||= current_user
+.stats
+  %table.info
+    %tr
+      %td
+        = link_to '#' do
+          %p
+            = @tweets.count
+          %p
+            Tweets
+      %td
+        %a{:href => following_user_path(@user)}
+          %strong#following.stat
+            = @user.following.count
+          Following
+      %td
+        %a{:href => followers_user_path(@user)}
+          %strong#followers.stat
+            = @user.followers.count
+          Followers
