@@ -1,5 +1,7 @@
-%h3 User
+%h3 Profile
 %p
   User: #{@user.name}
 %p
   Email: #{@user.email if @user.email}
+%p
+  Tweets: #{@user.tweets.count}

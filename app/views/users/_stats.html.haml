@@ -3,11 +3,11 @@
   %table.info
     %tr
       %td
-        = link_to '#' do
+        = link_to tweets_path(@tweets) do
           %p
             = @tweets.count
           %p
-            Tweets
+            Tweet
       %td
         %a{:href => following_user_path(@user)}
           %strong#following.stat

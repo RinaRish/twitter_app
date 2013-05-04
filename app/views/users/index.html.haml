@@ -6,21 +6,22 @@
         %th Username
         %th Email
         %th Registered
-        %th Role
+        %th Tweets
         %th
         %th
     %tbody
+      - @users.delete current_user
       - @users.each do |user|
         %tr
           %td= link_to user.name, user
           %td= user.email
           %td= user.created_at.to_date
-          %td= user.roles.first.name.titleize unless user.roles.first.nil?
+          %td= user.tweets.count
           %td
             #follow_form
               - if current_user.following?(user)
-                = link_to "Unfollow", {:partial => 'unfollow'}, {:class => "btn"}
+                = render :partial => 'unfollow', :object => @user
               - else
-                = link_to "Follow", {:partial => 'follow'}, {:class => "btn"}
+                = render :partial => 'follow', :object => @user
 
 
