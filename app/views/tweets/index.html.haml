@@ -3,8 +3,7 @@
     = f.text_area :content, class: 'form'
   %p
     = f.submit 'tweet', class: 'button_tweet'
-#- if @user.tweets.any?
-- @tweets.each do |tweet|
+- current_user.tweets.each do |tweet|
   %p
     = tweet.content
     = tweet.created_at.strftime("%d %b. %Y")

@@ -3,9 +3,9 @@
   %table.info
     %tr
       %td
-        = link_to tweets_path(@tweets) do
+        = link_to tweets_path(@tweet) do
           %p
-            = @tweets.count
+            = current_user.tweets.count
           %p
             Tweet
       %td

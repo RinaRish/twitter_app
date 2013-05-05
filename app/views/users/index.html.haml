@@ -20,8 +20,8 @@
           %td
             #follow_form
               - if current_user.following?(user)
-                = render :partial => 'unfollow', :object => @user
+                = link_to "Unfollow", {:partial => 'unfollow'}, {:class => "btn"}, :remote => true
               - else
-                = render :partial => 'follow', :object => @user
+                = link_to "Follow", {:partial => 'follow'}, {:class => "btn"}, :remote => true
 
 
