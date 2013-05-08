@@ -1,3 +1,5 @@
-= form_for(current_user.relationships.build, url: relationships_path(following_id: @user.id)) do |f|
-  %div= f.hidden_field :following_id, value: @user.id
-  = f.submit "Follow", class: "btn btn-large btn-primary"
+- @user ||= current_user
+= form_for(current_user.relationships.build(following_id: @user.id)) do |f|
+  %div= f.hidden_field :following_id
+  = f.submit "Follow", class: "btn btn-primary"
+
