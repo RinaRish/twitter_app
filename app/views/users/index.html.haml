@@ -17,11 +17,16 @@
           %td= user.email
           %td= user.created_at.to_date
           %td= user.tweets.count
+          %td= user.id
+          %td= current_user.id
           %td
-            #follow_form
-              - if current_user.following?(user)
-                = render partial:  'unfollow'
-              - else
-                = render partial: 'follow'
+            - if current_user.following?(user)
+              = form_for(current_user.relationships.find_by_followers_id(user), 
+                html: { method: :delete }) do |f|                                
+                = f.submit "Unfollow", class: "btn btn btn-danger"
+            - else
+              = form_for(current_user.relationships.build(following_id: user.id)) do |f|
+                %div= f.hidden_field :following_id
+                = f.submit "Follow", class: "btn btn-primary"
 
 
