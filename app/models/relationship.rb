@@ -1,5 +1,5 @@
 class Relationship < ActiveRecord::Base
-  attr_accessible :followers_id, :following_id
+  attr_accessible :following_id
 
   belongs_to :following, class_name: "User"
   belongs_to :followers, class_name: "User"
