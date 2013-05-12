@@ -1,0 +1,12 @@
+= form_for(@tweet) do |f|
+  %p
+    = f.text_area :content, class: 'form'
+  %p
+    = f.submit 'tweet', class: 'button_tweet'
+- current_user.tweets.each do |tweet|
+  %p
+    = tweet.content
+    = tweet.created_at.strftime("%d %b. %Y")
+- content_for(:side_bar) do
+  %section
+    = render 'users/stats'

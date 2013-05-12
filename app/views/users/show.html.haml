@@ -5,3 +5,7 @@
   Email: #{@user.email if @user.email}
 %p
   Tweets: #{@user.tweets.count}
+- if current_user.following?(@user)
+  = render partial: 'unfollow'
+- else
+  = render partial: 'follow'

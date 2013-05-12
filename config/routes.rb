@@ -1,7 +1,7 @@
 TwitterApp::Application.routes.draw do
 
   authenticated :user do
-    root :to => 'tweets#index'
+    root :to => 'tweets#show'
   end
   
   root :to => "home#index"
@@ -11,6 +11,7 @@ TwitterApp::Application.routes.draw do
       get :following, :followers
     end
   end
-  resources :tweets
+  
+  resources :tweets, only: [:create, :destroy]
   resources :relationships, only: [:create, :destroy]
 end
