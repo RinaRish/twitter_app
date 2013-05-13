@@ -31,5 +31,7 @@ class User < ActiveRecord::Base
    def unfollow!(other_user)
     relationships.find_by_following_id(other_user.id).destroy
   end
-  
+  def feed
+    Tweet.from_users_following_by(self)
+  end
 end
