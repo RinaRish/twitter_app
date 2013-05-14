@@ -1,17 +1,8 @@
 - provide(:title, @title)
-.row
-  %aside.span4
-    %section
-      %h1= @user.name
-      %span= link_to "view my profile", @user
-      %span
-        %b Tweets:
-        = @user.tweets.count
-    %section
-      = render 'users/stats'
-  .span8
-    %h3= @title
-    - if @users.any?
-      %ul.users
-        = render @users
-      = will_paginate
+- content_for(:side_bar) do
+  %section
+    = gravatar_for @user
+    %h1= @user.name
+    %span= link_to "view my profile", @user
+  %section    
+    = render 'users/stats'
