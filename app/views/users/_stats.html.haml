@@ -1,13 +1,17 @@
 - @user ||= current_user
+- provide(:title, @title)
+- content_for(:side_bar) do
+  %section
+    = gravatar_for @user
+    %h1= @user.name
 .stats
   %table.info
     %tr
       %td
-        = link_to tweets_path(@tweet) do
-          %p
-            = current_user.tweets.count
-          %p
-            Tweet
+        %a{:href => tweets_path(@tweet)}
+          %strong#tweet.stat
+            = @user.tweets.count
+          Tweets
       %td
         %a{:href => following_user_path(@user)}
           %strong#following.stat

@@ -1,0 +1,12 @@
+- provide(:title, @title)
+- content_for(:side_bar) do
+  %section
+    %span= link_to "view my profile", @user
+  %section    
+    = render 'users/stats'
+- if @users.any?
+  %ul.users
+    = render @users
+- else 
+  %p 
+    You aren't following anyone yet.
